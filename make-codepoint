@@ -1,9 +1,19 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-FILES=list-generator/gen_*.js
+which node > /dev/null
+if [ $? -ne 0  ]; then
+    echo 
+    echo "Warning: NodeJS not found in your PATH, stop"
+    echo
+    exit 1
+fi
 
-for f in $FILES
-do
+if [ ! -d ./list-generator/node_modules/underscore ]; then
+    echo "install module dependencies..."
+    cd list-generator; npm install; cd ..
+fi
+
+for f in $(ls list-generator/gen_*.js); do
   echo ""
   echo $f
   node $f
