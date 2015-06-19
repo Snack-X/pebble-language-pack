@@ -1,0 +1,18 @@
+#!/bin/bash
+
+FILES=list-generator/data_*.js
+
+for f in $FILES
+do
+  echo ""
+  echo $f
+  node $f
+done
+
+echo ""
+echo "Generating Korean Codepoints"
+node list-generator/_merge_k.js
+
+echo ""
+echo "Generating Korean+Japanese Codepoints"
+node list-generator/_merge_kj.js

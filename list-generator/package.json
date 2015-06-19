@@ -1,0 +1,10 @@
+{
+  "name": "pebble-new-korean-list-generator",
+  "version": "0.1.0",
+  "author": "Snack <korsnack@korsnack.kr>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "underscore": "^1.8.3"
+  }
+}
