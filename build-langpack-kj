@@ -1,0 +1,69 @@
+#!/bin/bash
+
+VERSION="0.9.0"
+CODEPOINT_LIST="codepoint/kj.json"
+REGULAR_FONT="font/NotoSansCJKkr-Regular.otf"
+BOLD_FONT="font/NotoSansCJKkr-Bold.otf"
+OUTPUT_FILE="build/pebbleKJ-$VERSION.pbl"
+
+# prepare
+mkdir temp
+
+# 000 - localization
+echo "000"
+msgfmt data/000.po -o temp/000
+
+# 001 - 14pt
+echo "001"
+python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 14 $REGULAR_FONT temp/001
+
+# 002 - 14pt bold
+echo "002"
+python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 14 $BOLD_FONT temp/002
+
+# 003 - 18pt
+echo "003"
+python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 18 $REGULAR_FONT temp/003
+
+# 004 - 18pt bold
+echo "004"
+python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 18 $BOLD_FONT temp/004
+
+# 005 - 24pt
+echo "005"
+python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 24 $REGULAR_FONT temp/005
+
+# 006 - 24pt bold
+echo "006"
+python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 24 $BOLD_FONT temp/006
+
+# 007 - 28pt
+echo "007"
+python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 28 $REGULAR_FONT temp/007
+
+# 008 - 28pt bold
+echo "008"
+python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 28 $BOLD_FONT temp/008
+
+# 009~018 - empty file
+touch temp/009
+touch temp/010
+touch temp/011
+touch temp/012
+touch temp/013
+touch temp/014
+touch temp/015
+touch temp/016
+touch temp/017
+touch temp/018
+
+# pack it
+echo "Packing"
+FILES=temp/0*
+python tool/pbpack_tool.py pack $OUTPUT_FILE $FILES
+
+# cleanup
+rm -rf temp/
+
+echo "Done!"
+

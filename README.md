@@ -17,4 +17,11 @@ Python scripts under `tool/` directory are from [xndcn/pebble-firmware-utils](ht
 
 Fonts under `font/` directory are Noto Sans. They are under Apache License 2.0. See [Noto Sans' LICENSE file](https://github.com/googlei18n/noto-fonts/blob/master/LICENSE).
 
-`pack/000` is a work by [cryingneko](http://wh.to/pebble/index_new.html). This file is retrieved from `pbKorean_nk02.pbl` by unpacking it.
+`data/000.po` is a work by [cryingneko](http://wh.to/pebble/index_new.html). This file is retrieved from `pbKorean_nk02.pbl` by unpacking it.
+
+# How to build
+
+0. `pip install freetype-py` (for `fontgen.py`)
+1. `cd list-generator && npm install`
+2. `./make-codepoint`
+3. `./build-langpack-k` or `./build-langpack-kj`
