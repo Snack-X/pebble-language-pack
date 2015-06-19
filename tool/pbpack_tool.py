@@ -3,13 +3,11 @@
 import argparse, os
 import sys
 
-if 'PEBBLE_SDK_PATH' not in os.environ:
-    print 'Please set pebble sdk path environment variable firstly!'
-    print 'export PEBBLE_SDK_PATH=/path/to/PebbleSDK/'
-    sys.exit()
+currentpath = os.path.dirname(os.path.abspath(__file__))
+sdkpath = os.path.join(currentpath, '../sdk')
+sdkpath = os.path.normpath(sdkpath)
+sys.path.append(sdkpath)
 
-sys.path.append(os.path.join(os.environ['PEBBLE_SDK_PATH'], 
-                'Pebble/tools'))
 from pbpack import ResourcePack
 
 def makedirs(directory):

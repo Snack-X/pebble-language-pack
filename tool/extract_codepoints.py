@@ -76,7 +76,8 @@ def extract_codepoints(font):
 
             count += 1
 
-    bitmap.show()
+    # bitmap.show()
+    bitmap.save('preview.png')
 
     print json.dumps({
             'max_height': max_height,
