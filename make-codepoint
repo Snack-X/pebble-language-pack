@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILES=list-generator/data_*.js
+FILES=list-generator/gen_*.js
 
 for f in $FILES
 do
