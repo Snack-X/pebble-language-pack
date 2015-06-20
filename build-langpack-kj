@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-VERSION="0.9.0"
+VERSION="0.9.1"
 CODEPOINT_LIST="codepoint/kj.json"
 REGULAR_FONT="font/NotoSansCJKkr-Regular.otf"
 BOLD_FONT="font/NotoSansCJKkr-Bold.otf"
@@ -19,7 +19,7 @@ python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 14 $REGULAR_FONT tem
 
 # 002 - 14pt bold
 echo "002"
-python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 14 $BOLD_FONT temp/002
+python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 14 $REGULAR_FONT temp/002
 
 # 003 - 18pt
 echo "003"
@@ -27,23 +27,23 @@ python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 18 $REGULAR_FONT tem
 
 # 004 - 18pt bold
 echo "004"
-python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 18 $BOLD_FONT temp/004
+python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 18 $REGULAR_FONT temp/004
 
 # 005 - 24pt
 echo "005"
-python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 24 $REGULAR_FONT temp/005
+python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 20 $REGULAR_FONT temp/005
 
 # 006 - 24pt bold
 echo "006"
-python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 24 $BOLD_FONT temp/006
+python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 20 $REGULAR_FONT temp/006
 
 # 007 - 28pt
 echo "007"
-python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 28 $REGULAR_FONT temp/007
+python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 22 $REGULAR_FONT temp/007
 
 # 008 - 28pt bold
 echo "008"
-python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 28 $BOLD_FONT temp/008
+python sdk/fontgen.py pfo --extended --list $CODEPOINT_LIST 22 $REGULAR_FONT temp/008
 
 # 009~018 - empty file
 touch temp/009
